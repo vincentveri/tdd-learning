@@ -39,8 +39,9 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element(by=By.ID, value='id_list_table')
         rows = table.find_elements(by=By.TAG_NAME, value='tr')
-        self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
+        self.assertIn(
+            '1: Buy peacock feathers',
+            [row.text for row in rows]
         )
 
         # there is still a text box inviting he to add another item
