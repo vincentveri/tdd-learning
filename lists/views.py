@@ -9,7 +9,9 @@ def home_page(request):
     if request.method == 'POST' and new_item_text != '':
         Item.objects.create(text=new_item_text)
         return redirect('/')
+    
+    items = Item.objects.all()
 
     return render(request, 'lists/home.html', {
-        'items': [new_item_text]
+        'items': items
     })
