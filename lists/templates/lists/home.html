@@ -3,5 +3,17 @@
         <title>To-Do lists</title>
     </head>
     <body>
+        <h1>To-Do lists</h1>
+
+        <input id="id_new_item" name="new_item" placeholder="Enter a to-do item" type="text">
+        <table id="id_list_table">
+            <tbody>
+                {% for list in lists %}
+                    <tr>
+                        <td>{{ list.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </body>
 </html>
